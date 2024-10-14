@@ -2,6 +2,8 @@ import matplotlib
 matplotlib.use('Agg')  # Use a non-interactive backend
 import matplotlib.pyplot as plt
 from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for, session
+from flask_login import LoginManager, UserMixin, login_user, logout_user, login_required, current_user
 import pandas as pd
 import os
 
@@ -10,17 +12,58 @@ app = Flask(__name__)
 
 DATA_FILE = 'data.csv'
 
+app.secret_key = 'your_secret_key'  # Replace with a secure random key
+login_manager = LoginManager()
+login_manager.init_app(app)
+login_manager.login_view = 'login'  # Redirect to login page if not logged in
+
+
+class User(UserMixin):
+    def __init__(self, id):
+        self.id = id
+
+
+@login_manager.user_loader
+def load_user(user_id):
+    return User(user_id)
+
+
+@app.route('/register', methods=['GET', 'POST'])
+def register():
+    if request.method == 'POST':
+        session['user_id'] = request.form['username']  # Save user ID in session for simplicity
+        return redirect(url_for('home'))
+    return render_template('register.html')
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        user_id = request.form['username']
+        user = User(user_id)
+        login_user(user)
+        return redirect(url_for('home'))
+    return render_template('login.html')
+
+@app.route('/logout')
+@login_required
+def logout():
+    logout_user()
+    return redirect(url_for('login'))
+
+
 # Initialize CSV file if it doesn't exist
 if not os.path.exists(DATA_FILE):
     df = pd.DataFrame(columns=['Income', 'Expense'])
     df.to_csv(DATA_FILE, index=False)
 
 @app.route('/')
+@login_required
 def home():
     df = pd.read_csv(DATA_FILE)
     incomes = df['Income'].dropna().tolist()
     expenses = df['Expense'].dropna().tolist()
-    return render_template('index.html', incomes=incomes, expenses=expenses)
+    return render_template('index.html', incomes=incomes, expenses=expenses,
+                           income_indexes=range(len(incomes)), expense_indexes=range(len(expenses)))
 
 @app.route('/submit', methods=['POST'])
 def submit():
