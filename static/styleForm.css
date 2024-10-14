@@ -8,6 +8,7 @@ body {
 
 h1 {
     color: #333;
+    text-align: center;
 }
 
 /* Form Styles */
@@ -29,7 +30,7 @@ label {
 input[type="text"],
 input[type="number"],
 input[type="submit"] {
-    width: 100%;
+    width: 90%;
     padding: 10px;
     margin: 10px 0;
     border: 1px solid #ccc;
@@ -41,6 +42,10 @@ input[type="submit"] {
     color: white;
     border: none;
     cursor: pointer;
+    width: 150px;
+    display: block;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 input[type="submit"]:hover {
@@ -51,6 +56,10 @@ input[type="submit"]:hover {
 a {
     color: #007bff;
     text-decoration: none;
+    justify-content: center;
+    text-align: center;
+    display: block;
+
 }
 
 a:hover {

@@ -1,58 +1,89 @@
+/* General Body Styles */
 body {
-    font-family: Arial, sans-serif;
-    margin: 20px;
-    background-color: #f4f4f4;
-    color: #333;
+    font-family: Arial, sans-serif; /* Clean sans-serif font */
+    margin: 20px; /* Margin around the body */
+    background-color: #f4f4f4; /* Light gray background */
+    color: #333; /* Default text color */
 }
 
+/* Main Heading */
 h1 {
-    color: #4CAF50;
+    color: #4CAF50; /* Green color for the main heading */
+    text-align: center; /* Center the main heading */
 }
 
+/* Form Styles */
 form {
-    background: #fff;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background: #fff; /* White background for forms */
+    padding: 20px; /* Padding inside forms */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    margin: 20px auto; /* Center the form with auto margins */
+    max-width: 400px; /* Maximum width for forms */
 }
 
+/* Label Styles */
 label {
-    display: block;
-    margin: 10px 0 5px;
+    display: block; /* Block display for labels */
+    margin: 10px 0 5px; /* Space above and below labels */
 }
 
-input[type="number"] {
-    width: calc(100% - 20px);
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+/* Input Styles */
+input[type="number"],
+input[type="text"] {
+    width: calc(100% - 20px); /* Full width minus padding */
+    padding: 10px; /* Padding inside inputs */
+    margin-bottom: 15px; /* Space below inputs */
+    border: 1px solid #ccc; /* Light gray border */
+    border-radius: 4px; /* Rounded corners for inputs */
 }
 
+/* Submit Button Styles */
 input[type="submit"] {
-    background: #4CAF50;
-    color: white;
-    border: none;
-    padding: 10px;
-    border-radius: 4px;
-    cursor: pointer;
+    background: #4CAF50; /* Green background for buttons */
+    color: white; /* White text */
+    border: none; /* No border */
+    padding: 10px; /* Padding inside button */
+    border-radius: 4px; /* Rounded corners for button */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background 0.3s ease; /* Smooth background transition */
 }
 
+/* Submit Button Hover Effect */
 input[type="submit"]:hover {
-    background: #45a049;
+    background: #45a049; /* Darker green on hover */
 }
 
+/* Secondary Headings */
 h2 {
-    margin-top: 20px;
+    margin-top: 20px; /* Space above secondary headings */
+    color: #333; /* Darker gray for secondary headings */
 }
 
+/* List Styles */
 ul {
-    list-style-type: none;
-    padding: 0;
+    list-style-type: none; /* Remove bullet points */
+    padding: 0; /* Remove default padding */
 }
 
+/* List Item Styles */
+li {
+    margin: 10px 0; /* Space between list items */
+    padding: 10px; /* Padding for list items */
+    background: #fff; /* White background for list items */
+    border-radius: 5px; /* Rounded corners for list items */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Subtle shadow for list items */
+}
+
+/* Image Styles */
 img {
-    max-width: 100%;
-    height: auto;
-    margin-top: 20px;
+    max-width: 100%; /* Responsive images */
+    height: auto; /* Maintain aspect ratio */
+    margin-top: 20px; /* Space above images */
+}
+
+/* Inline Form Styles */
+form[style="display:inline;"] {
+    display: inline; /* Inline display for edit and delete forms */
+    margin-left: 5px; /* Space between inline forms */
 }
