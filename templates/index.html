@@ -30,5 +30,10 @@
             <li>{{ expense }}</li>
         {% endfor %}
     </ul>
+
+    {% if incomes or expenses %}
+        <h2>Income vs Expense Chart</h2>
+        <img src="{{ url_for('static', filename='pie_chart.png') }}" alt="Income vs Expense Chart">
+    {% endif %}
 </body>
 </html>
