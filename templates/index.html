@@ -27,15 +27,33 @@
 
     <h2>Recorded Incomes</h2>
     <ul>
-        {% for income in incomes %}
-            <li>{{ income }}</li>
+        {% for index, income in enumerate(incomes) %}
+            <li>
+                {{ income }}
+                <form action="/edit_income/{{ index }}" method="post" style="display:inline;">
+                    <input type="number" name="new_income" placeholder="New Income">
+                    <input type="submit" value="Edit">
+                </form>
+                <form action="/delete_income/{{ index }}" method="post" style="display:inline;">
+                    <input type="submit" value="Delete">
+                </form>
+            </li>
         {% endfor %}
     </ul>
 
     <h2>Recorded Expenses</h2>
     <ul>
-        {% for expense in expenses %}
-            <li>{{ expense }}</li>
+        {% for index, expense in enumerate(expenses) %}
+            <li>
+                {{ expense }}
+                <form action="/edit_expense/{{ index }}" method="post" style="display:inline;">
+                    <input type="number" name="new_expense" placeholder="New Expense">
+                    <input type="submit" value="Edit">
+                </form>
+                <form action="/delete_expense/{{ index }}" method="post" style="display:inline;">
+                    <input type="submit" value="Delete">
+                </form>
+            </li>
         {% endfor %}
     </ul>
 
