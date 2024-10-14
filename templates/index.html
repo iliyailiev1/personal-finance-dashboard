@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Personal Finance Dashboard</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
     <h1>Welcome to Your Personal Finance Dashboard</h1>
@@ -17,6 +17,13 @@
         <br>
         <input type="submit" value="Submit">
     </form>
+
+    {% if total_income is not none %}
+        <h2>Budget Summary</h2>
+        <p>Total Income: {{ total_income }}</p>
+        <p>Total Expense: {{ total_expense }}</p>
+        <p>Remaining Balance: {{ balance }}</p>
+    {% endif %}
 
     <h2>Recorded Incomes</h2>
     <ul>

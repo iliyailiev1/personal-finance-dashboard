@@ -12,6 +12,7 @@ expenses = []
 def home():
     return render_template('index.html')
 
+
 @app.route('/submit', methods=['POST'])
 def submit():
     income = request.form.get('income', type=float)
@@ -28,15 +29,21 @@ def submit():
         sizes = [sum(incomes), sum(expenses)]
         plt.figure(figsize=(5, 5))
         plt.pie(sizes, labels=labels, autopct='%1.1f%%', startangle=90)
-        plt.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle
+        plt.axis('equal')
 
-        # Save the figure
         if not os.path.exists('static'):
             os.makedirs('static')
         plt.savefig('static/pie_chart.png')
         plt.close()
 
-    return render_template('index.html', incomes=incomes, expenses=expenses)
+    # Calculate totals and balance
+    total_income = sum(incomes)
+    total_expense = sum(expenses)
+    balance = total_income - total_expense
+
+    return render_template('index.html', incomes=incomes, expenses=expenses,
+                           total_income=total_income, total_expense=total_expense, balance=balance)
+
 
 if __name__ == '__main__':
     app.run(debug=True)
