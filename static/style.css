@@ -1,58 +1,58 @@
-/* General Styles */
 body {
     font-family: Arial, sans-serif;
+    margin: 20px;
     background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
-}
-
-h1 {
     color: #333;
 }
 
-/* Form Styles */
+h1 {
+    color: #4CAF50;
+}
+
 form {
     background: #fff;
     padding: 20px;
     border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    margin: 20px auto;
-    width: 300px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 label {
     display: block;
-    margin-bottom: 10px;
-    font-weight: bold;
+    margin: 10px 0 5px;
 }
 
-input[type="text"],
-input[type="number"],
-input[type="submit"] {
-    width: 100%;
+input[type="number"] {
+    width: calc(100% - 20px);
     padding: 10px;
-    margin: 10px 0;
+    margin-bottom: 15px;
     border: 1px solid #ccc;
     border-radius: 4px;
 }
 
 input[type="submit"] {
-    background-color: #5cb85c;
+    background: #4CAF50;
     color: white;
     border: none;
+    padding: 10px;
+    border-radius: 4px;
     cursor: pointer;
 }
 
 input[type="submit"]:hover {
-    background-color: #4cae4c;
+    background: #45a049;
 }
 
-/* Link Styles */
-a {
-    color: #007bff;
-    text-decoration: none;
+h2 {
+    margin-top: 20px;
 }
 
-a:hover {
-    text-decoration: underline;
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 20px;
 }
